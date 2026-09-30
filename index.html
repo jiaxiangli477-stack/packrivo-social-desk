@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Packrivo Social Desk · 本地预览 1.0</title>
+  <meta name="description" content="Packrivo 海外社媒内容与人工发布工作台本地预览。">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./theme-dark.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="工作台导航">
+      <a class="brand" href="#accounts" aria-label="Packrivo Social Desk">
+        <span class="brand-symbol">P<span></span></span>
+        <span class="brand-copy"><strong>Packrivo</strong><small>Social Desk <em>1.0</em></small></span>
+      </a>
+
+      <div class="side-group">
+        <p class="side-label">工作区</p>
+        <button class="nav-link" data-view="overview"><span class="nav-icon">▦</span>今日总览</button>
+        <button class="nav-link" data-view="studio"><span class="nav-icon">✎</span>内容工作室</button>
+        <button class="nav-link" data-view="queue"><span class="nav-icon">▤</span>发布日历与队列</button>
+        <button class="nav-link" data-view="library"><span class="nav-icon">▧</span>内容与素材库</button>
+        <button class="nav-link" data-view="accounts"><span class="nav-icon">◉</span>社媒账号</button>
+        <button class="nav-link" data-view="results"><span class="nav-icon">▥</span>结果记录</button>
+      </div>
+
+      <div class="side-group future">
+        <p class="side-label">后续版本</p>
+        <span class="nav-future"><span class="nav-icon">⌑</span>社媒收件箱 <small>规划中</small></span>
+        <span class="nav-future"><span class="nav-icon">♢</span>通知中心 <small>规划中</small></span>
+        <span class="nav-future"><span class="nav-icon">↗</span>官方 API 发布 <small>待授权</small></span>
+      </div>
+
+      <div class="side-bottom">
+        <span class="local-indicator"><i></i>仅保存在此浏览器</span>
+        <p>内容草稿可导出备份。此版本不保存密码、Cookie 或平台令牌。</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-heading">
+          <span class="topbar-kicker">Packrivo / 海外内容运营</span>
+          <strong id="topbar-title">社媒账号</strong>
+        </div>
+        <div class="topbar-actions">
+          <span class="version-chip">本地预览 · 手动发布</span>
+          <button id="export-data" class="button button-quiet" type="button">导出备份</button>
+          <label class="button button-quiet import-label" for="import-data">导入备份</label>
+          <input id="import-data" type="file" accept="application/json,.json" hidden>
+          <button id="new-content" class="button button-primary" type="button"><span aria-hidden="true">＋</span> 新建内容</button>
+        </div>
+      </header>
+      <div id="storage-alert" class="storage-alert" hidden role="status"></div>
+      <div id="view" class="view" aria-live="polite"></div>
+      <footer class="main-footer">Packrivo Social Desk 1.0 · 账号登记和发帖结果由你手工确认 · <a href="./ROADMAP.md">查看后续计划</a></footer>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <dialog id="publication-dialog" class="modal">
+    <form id="publication-form" method="dialog">
+      <div class="modal-heading"><div><span class="eyebrow">发布回填</span><h2>记录实际发布</h2></div><button class="icon-button" type="button" data-close-dialog aria-label="关闭">×</button></div>
+      <p class="muted">只有平台上确实出现帖子后，才填写公开链接。工作台只检查链接格式与平台域名，无法验证帖子是否真实存在。</p>
+      <input type="hidden" name="variantId">
+      <label class="field">公开帖子链接 <span>必填</span><input name="publishedUrl" type="url" placeholder="https://www.linkedin.com/posts/..." required></label>
+      <label class="field">发布时间 <input name="publishedAt" type="datetime-local" required></label>
+      <label class="field">备注 <textarea name="publishNote" rows="3" placeholder="例如：发布时使用的图片版本、平台审核情况"></textarea></label>
+      <div class="modal-actions"><button class="button button-quiet" type="button" data-close-dialog>取消</button><button class="button button-primary" type="submit">保存发布记录</button></div>
+    </form>
+  </dialog>
+
+  <script src="./app.js"></script>
+</body>
+</html>
