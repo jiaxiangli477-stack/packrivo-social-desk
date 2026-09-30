@@ -183,3 +183,35 @@ textarea{resize:vertical;min-height:90px;line-height:1.55}
 @media(max-width:900px){.app-shell{grid-template-columns:70px minmax(0,1fr)}.sidebar{padding-left:8px;padding-right:8px}.brand{justify-content:center;padding:4px 0 25px}.brand-copy,.side-label,.nav-link:not(.active),.nav-future,.side-bottom p,.local-indicator{display:none}.side-group{margin-top:17px}.nav-link{padding:0;justify-content:center;font-size:0}.nav-link.active{min-height:44px}.nav-icon{font-size:1.2rem}.side-bottom{display:none}.topbar{align-items:start}.version-chip{display:none}.stat-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:680px){.app-shell{display:block}.sidebar{position:static;width:100%;height:auto;padding:10px 12px;display:block}.brand{display:inline-flex;padding:0;border:0}.brand-copy{display:block}.side-group,.side-bottom{display:none}.topbar{padding:15px;display:block}.topbar-heading{margin-bottom:11px}.topbar-actions{justify-content:flex-start}.topbar-actions .button{font-size:.7rem}.view{padding:24px 15px 38px}.view-title{display:block}.hero{grid-template-columns:1fr;padding:21px}.hero-side{text-align:left;justify-self:start}.stat-grid,.account-grid,.variant-grid,.asset-grid,.form-grid,.measure-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.content-row,.queue-row{display:block}.row-actions{justify-content:flex-start;margin-top:12px}.calendar{display:flex;overflow:auto}.day{min-width:110px}.main-footer{padding:15px}.split-table{display:block;overflow:auto;white-space:nowrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button,.toast{transition:none}}
+
+/* Optional service and explicit, review-first AI / staging controls. */
+.service-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:18px}
+.service-heading h2,.service-heading h3{margin-bottom:0}
+.service-status{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
+.service-status p{font-size:.8rem;color:var(--muted);margin:0;overflow-wrap:anywhere}
+.status-dot{flex:0 0 8px;width:8px;height:8px;margin-top:5px;border-radius:50%;background:#9b896c}
+.service-status.connected .status-dot{background:#48bba2}
+.service-capabilities{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.service-capabilities strong{font-size:.87rem}
+.service-capabilities p,.ai-disclosure,.jobs-panel>.muted,.generated-preview>.muted{font-size:.79rem;color:var(--muted);line-height:1.7}
+.service-capabilities p{margin:8px 0}
+.ai-panel{margin-top:24px;border-top:3px solid var(--forest)}
+.ai-disclosure{margin:20px 0;padding:12px 15px;border:1px solid var(--line);border-radius:8px}
+.service-warning,.stage-warning{padding:12px 14px;background:#fff0df;color:#704b2d;border:1px solid #dbbe96;border-radius:8px;font-size:.8rem;line-height:1.7;overflow-wrap:anywhere}
+.service-warning:empty{display:none}
+.generated-preview{margin-top:25px;padding:22px;border:1px solid var(--forest);border-radius:10px;background:var(--sage)}
+.generation-warnings{font-size:.78rem;color:var(--muted);padding-left:20px}
+.provenance{font-size:.7rem;color:var(--muted);margin:14px 0 0}
+.jobs-panel{margin-top:24px}
+.job-list{display:grid;gap:16px}
+.job-row{padding:18px;border:1px solid var(--line);border-radius:9px;min-width:0}
+.job-row>p{font-size:.78rem;margin:12px 0}
+.job-id{overflow-wrap:anywhere;margin-bottom:0!important}
+.job-text,.stage-text{white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--sans);font-size:.85rem;line-height:1.7;background:var(--paper);color:var(--ink);border:1px solid var(--line);padding:16px;border-radius:8px;max-height:360px;overflow:auto}
+.job-text{max-height:180px;font-size:.78rem}
+.stage-modal{width:min(760px,calc(100vw - 36px));max-height:90vh;overflow-y:auto}
+.stage-details{display:grid;grid-template-columns:90px 1fr;gap:10px 15px;font-size:.8rem}
+.stage-details dt{color:var(--muted)}
+.stage-details dd{margin:0;overflow-wrap:anywhere}
+.status-pill.blocked{color:#74542c;background:#fff0d6;border:1px solid #dbc295}
+@media(max-width:700px){.service-capabilities{grid-template-columns:1fr}.service-heading{flex-wrap:wrap}.generated-preview{padding:16px}.stage-details{grid-template-columns:1fr;gap:4px}.stage-details dd{margin-bottom:10px}.ai-panel .form-actions{flex-wrap:wrap}}

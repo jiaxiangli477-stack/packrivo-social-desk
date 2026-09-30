@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Packrivo Social Desk · 本地预览 1.0</title>
+  <title>Packrivo Social Desk · 本机工作台 1.1</title>
   <meta name="description" content="Packrivo 海外社媒内容与人工发布工作台本地预览。">
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./theme-dark.css">
@@ -14,7 +14,7 @@
     <aside class="sidebar" aria-label="工作台导航">
       <a class="brand" href="#accounts" aria-label="Packrivo Social Desk">
         <span class="brand-symbol">P<span></span></span>
-        <span class="brand-copy"><strong>Packrivo</strong><small>Social Desk <em>1.0</em></small></span>
+        <span class="brand-copy"><strong>Packrivo</strong><small>Social Desk <em>1.1</em></small></span>
       </a>
 
       <div class="side-group">
@@ -24,6 +24,7 @@
         <button class="nav-link" data-view="queue"><span class="nav-icon">▤</span>发布日历与队列</button>
         <button class="nav-link" data-view="library"><span class="nav-icon">▧</span>内容与素材库</button>
         <button class="nav-link" data-view="accounts"><span class="nav-icon">◉</span>社媒账号</button>
+        <button class="nav-link" data-view="service"><span class="nav-icon">⌁</span>本机服务</button>
         <button class="nav-link" data-view="results"><span class="nav-icon">▥</span>结果记录</button>
       </div>
 
@@ -35,8 +36,8 @@
       </div>
 
       <div class="side-bottom">
-        <span class="local-indicator"><i></i>仅保存在此浏览器</span>
-        <p>内容草稿可导出备份。此版本不保存密码、Cookie 或平台令牌。</p>
+        <span class="local-indicator"><i></i>母稿保存在此浏览器</span>
+        <p>内容草稿可导出备份。可选服务使用同源会话，密钥与会话不写入备份。</p>
       </div>
     </aside>
 
@@ -47,7 +48,7 @@
           <strong id="topbar-title">社媒账号</strong>
         </div>
         <div class="topbar-actions">
-          <span class="version-chip">本地预览 · 手动发布</span>
+          <span class="version-chip">本机工作台 · 手动发布</span>
           <button id="export-data" class="button button-quiet" type="button">导出备份</button>
           <label class="button button-quiet import-label" for="import-data">导入备份</label>
           <input id="import-data" type="file" accept="application/json,.json" hidden>
@@ -56,7 +57,7 @@
       </header>
       <div id="storage-alert" class="storage-alert" hidden role="status"></div>
       <div id="view" class="view" aria-live="polite"></div>
-      <footer class="main-footer">Packrivo Social Desk 1.0 · 账号登记和发帖结果由你手工确认 · <a href="./ROADMAP.md">查看后续计划</a></footer>
+      <footer class="main-footer">Packrivo Social Desk 1.1 · 账号登记和发帖结果由你手工确认 · <a href="./ROADMAP.md">查看后续计划</a></footer>
     </main>
   </div>
 
@@ -71,6 +72,18 @@
       <label class="field">发布时间 <input name="publishedAt" type="datetime-local" required></label>
       <label class="field">备注 <textarea name="publishNote" rows="3" placeholder="例如：发布时使用的图片版本、平台审核情况"></textarea></label>
       <div class="modal-actions"><button class="button button-quiet" type="button" data-close-dialog>取消</button><button class="button button-primary" type="submit">保存发布记录</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="stage-dialog" class="modal stage-modal" aria-labelledby="stage-heading">
+    <form id="stage-form" method="dialog">
+      <div class="modal-heading"><div><span class="eyebrow">Stage Only · No Publication</span><h2 id="stage-heading">预览纯文字暂存请求</h2></div><button class="icon-button" type="button" data-close-stage aria-label="关闭暂存预览">×</button></div>
+      <p class="stage-warning">本次只把请求暂存到本机服务，不向 LinkedIn 发帖。真实发布已禁用，也不会自动排期或重试。</p>
+      <dl class="stage-details"><dt>母稿</dt><dd id="stage-title"></dd><dt>渠道</dt><dd>LinkedIn · 公司主页 · 纯文字</dd><dt>目标主页</dt><dd id="stage-target"></dd><dt>可见性</dt><dd>未来若正式启用发布，帖子将公开展示在目标公司主页。当前不会发送。</dd></dl>
+      <p class="muted">以下是已保存、已审核的完整文案与标签。没有关联素材，不上传任何图片、视频或文件。</p>
+      <pre id="stage-text" class="stage-text" tabindex="0" aria-label="完整暂存文案"></pre>
+      <p id="stage-error" class="service-warning" role="alert"></p>
+      <div class="modal-actions"><button class="button button-quiet" type="button" data-close-stage>取消</button><button id="confirm-stage" class="button button-primary" type="submit">确认暂存请求（不发布）</button></div>
     </form>
   </dialog>
 

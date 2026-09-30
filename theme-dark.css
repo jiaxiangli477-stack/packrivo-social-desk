@@ -133,3 +133,9 @@ h3{font:700 1.03rem/1.22 var(--sans);color:#eef5f8}
 @media(max-width:900px){.app-shell{grid-template-columns:70px minmax(0,1fr)}.sidebar{padding-left:8px;padding-right:8px}.nav-link,.nav-link:not(.active){display:flex;font-size:0;justify-content:center;padding:0}.nav-link.active{box-shadow:inset 2px 0 0 #4fe2cb}.account-spotlight{grid-template-columns:1fr}}
 @media(max-width:680px){.app-shell{display:block}.sidebar{border-right:0;border-bottom:1px solid #273a4a}.sidebar .side-group:not(.future){display:flex;gap:6px;overflow-x:auto;margin-top:12px;padding-bottom:2px}.sidebar .side-label{display:none}.nav-link,.nav-link:not(.active){display:inline-flex;flex:0 0 auto;width:auto;min-height:38px;padding:0 10px;font-size:.71rem}.nav-icon{width:16px;font-size:.85rem}.main{min-height:100vh}.topbar{backdrop-filter:none}.hero{padding:24px}.account-card{min-height:195px}.account-spotlight-side{padding:19px}}
 @media(prefers-reduced-motion:reduce){.button,.account-card{transition:none}}
+
+.service-warning,.stage-warning{background:#352b22;color:#ffd19c;border-color:#725333}
+.generated-preview{background:#132d33;border-color:#34766e}
+.status-pill.blocked{color:#ffd090;background:#3b3021;border-color:#6e5735}
+.job-text,.stage-text{background:#0e1825;border-color:#32485a}
+.ai-panel{border-top-color:#4ee2ca}

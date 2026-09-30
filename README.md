@@ -1,4 +1,10 @@
-# Packrivo Social Desk 1.0 · 本地桌面预览
+# Packrivo Social Desk · 1.1 可审查增量
+
+本目录是原 1.0 的独立升级副本。新增可选本机 Node 服务、真实 OpenAI 草稿请求、接受前预览、确切版本审核，以及 LinkedIn 纯文字发布请求暂存。**真实社媒发布仍被硬性关闭**，没有平台账号连接或自动排期。完整配置与安全范围见 [UPGRADE.md](./UPGRADE.md)，检查结果及未验证项见 [TEST_RESULTS.md](./TEST_RESULTS.md)。
+
+可选服务：安装 Node.js 22+ 后运行 `node server.mjs`，打开终端显示的本机地址，再点击“检查本机服务”。无需安装依赖；未配置模型时不会生成虚假示例。离线与服务地址的浏览器数据不会自动搬移，请先导出再导入备份。
+
+## 保留的离线工作台
 
 双击 `index.html`，用电脑浏览器打开。此版本由本地 HTML、CSS 和 JavaScript 组成，无需安装依赖或启动服务器。若浏览器限制本地页面存储，页面会提示；请使用“导出备份”保存 JSON。
 
@@ -25,4 +31,4 @@ Reddit、Quora、Shopify Community 等社区按具体问题逐帖参与；行业
 
 发布回填只做 URL 格式与平台域名检查，**无法证明帖子真实存在**。本地审查与未完成的视觉验收见 [REVIEW_NOTES.md](./REVIEW_NOTES.md)。图标来源见 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md)。
 
-本地状态逻辑可用 `node qa-state.mjs` 检查；它不代替真实浏览器里的视觉与点击验收。
+本地状态逻辑可用 `node qa-state.mjs` 检查；新增检查运行 `npm test` 与 `npm run test:frontend`。本轮真实浏览器访问被环境策略阻止，单元/HTTP/VM 检查不代替视觉与点击验收。

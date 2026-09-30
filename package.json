@@ -1,0 +1,15 @@
+{
+  "name": "packrivo-social-desk",
+  "version": "1.1.0-review.1",
+  "private": true,
+  "description": "Offline social desk with optional protected local AI drafting and blocked publishing request staging",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --check app.js && node --check server.mjs && node qa-state.mjs && node qa-frontend.mjs && node --test tests/*.test.mjs",
+    "test:frontend": "node qa-frontend.mjs"
+  }
+}
